@@ -14,10 +14,11 @@ import 'package:auth_buttons/auth_buttons.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  var loginController = LoginController();
+  // var loginController = LoginController();
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();

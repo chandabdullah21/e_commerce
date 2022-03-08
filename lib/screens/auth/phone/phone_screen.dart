@@ -6,14 +6,16 @@ import 'package:e_commerce/widgets/custom_button.dart';
 import 'package:e_commerce/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:get/get.dart';
 
 class PhoneScreen extends StatelessWidget {
   PhoneScreen({Key? key}) : super(key: key);
 
-  var phoneController = PhoneController();
+  // var phoneController = PhoneController();
 
   @override
   Widget build(BuildContext context) {
+    final PhoneController phoneController = Get.put(PhoneController());
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();

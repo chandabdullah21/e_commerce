@@ -1,23 +1,23 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:e_commerce/constants/colors.dart';
-import 'package:e_commerce/screens/cart/cart_screen.dart';
-import 'package:e_commerce/screens/home/home_screen.dart';
-import 'package:e_commerce/screens/profile/more_screen.dart';
-import 'package:e_commerce/screens/profile/profile_screen.dart';
-import 'package:e_commerce/screens/search/search_screen.dart';
+import 'package:e_commerce/screens/tabs/cart/cart_screen.dart';
+import 'package:e_commerce/screens/tabs/home/home_screen.dart';
+import 'package:e_commerce/screens/tabs/profile/more_screen.dart';
+import 'package:e_commerce/screens/tabs/profile/profile_screen.dart';
+import 'package:e_commerce/screens/tabs/search/search_screen.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:flutter/material.dart';
 // import 'package:ss_bottom_navbar/ss_bottom_navbar.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({Key? key}) : super(key: key);
+class Tabs extends StatefulWidget {
+  const Tabs({Key? key}) : super(key: key);
 
   @override
-  _NavigationState createState() => _NavigationState();
+  _TabsState createState() => _TabsState();
 }
 
-class _NavigationState extends State<Navigation> {
+class _TabsState extends State<Tabs> {
   int _currentIndex = 0;
   final PageController _pageController = PageController();
 

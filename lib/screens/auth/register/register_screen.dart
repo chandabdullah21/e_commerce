@@ -13,10 +13,11 @@ import 'package:get/get.dart';
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
 
-  var registerController = RegisterController();
+  // var registerController = RegisterController();
 
   @override
   Widget build(BuildContext context) {
+    final RegisterController registerController = Get.put(RegisterController());
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();

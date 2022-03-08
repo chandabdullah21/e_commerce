@@ -17,6 +17,7 @@ dependencies:
   timeago:
   dotted_border:
   google_fonts: 2.1.1
+  empty_widget: 
   intl_phone_field:
   form_field_validator:
   auth_buttons:
