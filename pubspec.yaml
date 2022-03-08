@@ -24,6 +24,7 @@ dependencies:
   bottom_navy_bar:
   skeletons:
   cached_network_image:
+  pin_code_fields:
 
   cupertino_icons: ^1.0.2
 

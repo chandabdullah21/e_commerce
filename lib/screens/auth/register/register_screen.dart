@@ -17,124 +17,126 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(kPadding),
-          child: Form(
-            key: registerController.formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Sign Up",
-                  style: Theme.of(context).textTheme.headline4!.copyWith(
-                        color: AppColors.secondaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-                const SpaceH48(),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomInput(
-                        icon: EvaIcons.personOutline,
-                        title: "First",
-                        hint: "",
-                        isObscure: false,
-                        textInputType: TextInputType.name,
-                        controller: registerController.firstNameController,
-                        formValidator: MultiValidator([
-                          RequiredValidator(errorText: 'name is required'),
-                        ]),
-                      ),
-                    ),
-                    const SpaceW12(),
-                    Expanded(
-                      child: CustomInput(
-                        title: "Last Name",
-                        hint: "",
-                        isObscure: false,
-                        textInputType: TextInputType.name,
-                        controller: registerController.lastNameController,
-                        formValidator: MultiValidator([
-                          RequiredValidator(errorText: 'name is required'),
-                        ]),
-                      ),
-                    ),
-                  ],
-                ),
-                const SpaceH30(),
-                CustomInput(
-                  icon: EvaIcons.emailOutline,
-                  title: "Email",
-                  hint: "Enter your email",
-                  isObscure: false,
-                  textInputType: TextInputType.emailAddress,
-                  controller: registerController.emailController,
-                  formValidator: MultiValidator([
-                    RequiredValidator(errorText: 'email is required'),
-                    EmailValidator(errorText: "invalid email"),
-                  ]),
-                ),
-                const SpaceH30(),
-                CustomPhoneInput(
-                  controller: registerController.phoneController,
-                  formValidator: MultiValidator([
-                    RequiredValidator(errorText: 'phone is required'),
-                  ]),
-                ),
-                const SpaceH30(),
-                CustomInput(
-                  icon: EvaIcons.lockOutline,
-                  title: "Password",
-                  hint: "Enter you password",
-                  isObscure: true,
-                  textInputType: TextInputType.visiblePassword,
-                  controller: registerController.passwordController,
-                  formValidator: MultiValidator([
-                    RequiredValidator(errorText: 'password is required'),
-                    MinLengthValidator(6,
-                        errorText:
-                            "password must be greater than 6 characters.")
-                  ]),
-                ),
-                const SpaceH30(),
-                CustomPrimaryButton(
-                  text: "Register",
-                  onPress: () {
-                    registerController.onRegisterClick();
-                  },
-                ),
-                const Spacer(),
-                SizedBox(
-                  width: widthOfScreen(context),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Already have an account?",
-                        style: TextStyle(
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      onVerticalDragStart: (drag) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(kPadding),
+            child: Form(
+              key: registerController.formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Sign Up",
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: AppColors.secondaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  const SpaceH48(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomInput(
+                          icon: EvaIcons.personOutline,
+                          title: "First",
+                          hint: "",
+                          isObscure: false,
+                          textInputType: TextInputType.name,
+                          controller: registerController.firstNameController,
+                          formValidator: MultiValidator([
+                            RequiredValidator(errorText: 'name is required'),
+                          ]),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: const Text(
-                          "login now",
-                          style: TextStyle(
-                            color: AppColors.primaryColor,
-                          ),
+                      const SpaceW12(),
+                      Expanded(
+                        child: CustomInput(
+                          title: "Last Name",
+                          hint: "",
+                          isObscure: false,
+                          textInputType: TextInputType.name,
+                          controller: registerController.lastNameController,
+                          formValidator: MultiValidator([
+                            RequiredValidator(errorText: 'name is required'),
+                          ]),
                         ),
                       ),
                     ],
                   ),
-                ),
-                const SpaceH12(),
-              ],
+                  const SpaceH30(),
+                  CustomInput(
+                    icon: EvaIcons.emailOutline,
+                    title: "Email",
+                    hint: "Enter your email",
+                    isObscure: false,
+                    textInputType: TextInputType.emailAddress,
+                    controller: registerController.emailController,
+                    formValidator: MultiValidator([
+                      RequiredValidator(errorText: 'email is required'),
+                      EmailValidator(errorText: "invalid email"),
+                    ]),
+                  ),
+                  const SpaceH30(),
+                  CustomInput(
+                    icon: EvaIcons.lockOutline,
+                    title: "Password",
+                    hint: "Enter you password",
+                    isObscure: true,
+                    textInputType: TextInputType.visiblePassword,
+                    controller: registerController.passwordController,
+                    formValidator: MultiValidator([
+                      RequiredValidator(errorText: 'password is required'),
+                      MinLengthValidator(6,
+                          errorText:
+                              "password must be greater than 6 characters.")
+                    ]),
+                  ),
+                  const SpaceH30(),
+                  CustomPrimaryButton(
+                    text: "Register",
+                    onPress: () {
+                      registerController.onRegisterClick();
+                    },
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    width: widthOfScreen(context),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Already have an account?",
+                          style: TextStyle(
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: const Text(
+                            "login now",
+                            style: TextStyle(
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SpaceH12(),
+                ],
+              ),
             ),
           ),
         ),

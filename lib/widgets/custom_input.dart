@@ -4,6 +4,7 @@ import 'package:e_commerce/constants/app_constants.dart';
 import 'package:e_commerce/constants/colors.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:get/get.dart';
@@ -69,7 +70,7 @@ class _CustomInputState extends State<CustomInput> {
                   color: AppColors.secondaryColor,
                 ),
               )
-            : SizedBox(),
+            : null,
         label: Text(widget.title),
         labelStyle: const TextStyle(
           color: AppColors.secondaryColor,
@@ -93,10 +94,14 @@ class CustomPhoneInput extends StatefulWidget {
   CustomPhoneInput({
     Key? key,
     required this.controller,
+    required this.onCountryChange,
     this.formValidator,
+    this.autoFocus,
   }) : super(key: key);
   TextEditingController controller;
   FormFieldValidator? formValidator;
+  Function(Country)? onCountryChange;
+  bool? autoFocus;
 
   @override
   State<CustomPhoneInput> createState() => _CustomPhoneInputState();
@@ -107,15 +112,22 @@ class _CustomPhoneInputState extends State<CustomPhoneInput> {
   Widget build(BuildContext context) {
     return IntlPhoneField(
       validator: widget.formValidator,
+      onCountryChanged: widget.onCountryChange,
+      autofocus: widget.autoFocus ?? false,
       controller: widget.controller,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
       flagsButtonPadding: const EdgeInsets.only(left: 5),
       dropdownIconPosition: IconPosition.trailing,
       cursorColor: AppColors.primaryColor,
       keyboardType: TextInputType.phone,
+      initialValue: "",
+      dropdownIcon: const Icon(
+        EvaIcons.arrowIosDownwardOutline,
+        color: AppColors.secondaryColor,
+        size: 18,
+      ),
       decoration: InputDecoration(
         counterText: "",
-        label: const Text("Phone"),
+        label: const Text("Phone Number"),
         labelStyle: const TextStyle(
           color: AppColors.secondaryColor,
         ),
@@ -130,9 +142,6 @@ class _CustomPhoneInputState extends State<CustomPhoneInput> {
         ),
       ),
       initialCountryCode: 'PK',
-      onChanged: (phone) {
-        print(phone.completeNumber);
-      },
     );
   }
 }

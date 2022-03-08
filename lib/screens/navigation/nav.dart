@@ -1,7 +1,10 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:e_commerce/constants/colors.dart';
+import 'package:e_commerce/screens/cart/cart_screen.dart';
 import 'package:e_commerce/screens/home/home_screen.dart';
+import 'package:e_commerce/screens/profile/more_screen.dart';
 import 'package:e_commerce/screens/profile/profile_screen.dart';
+import 'package:e_commerce/screens/search/search_screen.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:flutter/material.dart';
@@ -21,7 +24,10 @@ class _NavigationState extends State<Navigation> {
   List<Widget> _buildScreens() {
     return [
       const HomeScreen(),
+      const SearchScreen(),
+      const CartScreen(),
       const ProfileScreen(),
+      const MoreScreen(),
     ];
   }
 
@@ -68,9 +74,36 @@ class _NavigationState extends State<Navigation> {
           ),
           BottomNavyBarItem(
             textAlign: TextAlign.center,
+            title: const Text('Search'),
+            icon: const Icon(
+              EvaIcons.searchOutline,
+            ),
+            activeColor: AppColors.primaryColor,
+            inactiveColor: AppColors.secondaryColor,
+          ),
+          BottomNavyBarItem(
+            textAlign: TextAlign.center,
+            title: const Text('Cart'),
+            icon: const Icon(
+              EvaIcons.shoppingCartOutline,
+            ),
+            activeColor: AppColors.primaryColor,
+            inactiveColor: AppColors.secondaryColor,
+          ),
+          BottomNavyBarItem(
+            textAlign: TextAlign.center,
             title: const Text('Profile'),
             icon: const Icon(
               EvaIcons.personOutline,
+            ),
+            activeColor: AppColors.primaryColor,
+            inactiveColor: AppColors.secondaryColor,
+          ),
+          BottomNavyBarItem(
+            textAlign: TextAlign.center,
+            title: const Text('More'),
+            icon: const Icon(
+              EvaIcons.menu2Outline,
             ),
             activeColor: AppColors.primaryColor,
             inactiveColor: AppColors.secondaryColor,

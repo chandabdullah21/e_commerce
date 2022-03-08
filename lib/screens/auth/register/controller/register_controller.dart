@@ -1,6 +1,7 @@
 import 'package:e_commerce/models/models.dart';
 import 'package:e_commerce/utils/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class RegisterController extends GetxController {
@@ -24,7 +25,6 @@ class RegisterController extends GetxController {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   onRegisterClick() {
@@ -32,12 +32,11 @@ class RegisterController extends GetxController {
       firstNameController.text,
       lastNameController.text,
       emailController.text,
-      phoneController.text,
       passwordController.text,
     });
 
     if (formKey.currentState!.validate()) {
-      showToast("Alert", "Email Already Exist", "success", true);
+      Get.toNamed('/phone');
     }
   }
 }

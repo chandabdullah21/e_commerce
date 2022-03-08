@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.initial,
       getPages: Routes.routes,
       theme: ThemeData(
-        // primarySwatch: Colors.indigo,
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       scrollBehavior: CustomScrollBehavior(),
@@ -34,5 +33,6 @@ class CustomScrollBehavior extends MaterialScrollBehavior {
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,
         PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
       };
 }

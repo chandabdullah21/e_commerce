@@ -1,10 +1,9 @@
 import 'package:e_commerce/constants/app_constants.dart';
 import 'package:e_commerce/constants/colors.dart';
 import 'package:e_commerce/constants/spaces.dart';
-import 'package:e_commerce/widgets/custom_network_image.dart';
+import 'package:e_commerce/widgets/custom_listTile.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -45,8 +44,12 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          )),
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
+                              MaterialStateProperty.all(Colors.transparent),
                           elevation: MaterialStateProperty.all(0),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
@@ -70,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const SpaceH20(),
+              const SpaceH24(),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -78,37 +81,56 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    ListTile(
-                      leading: const Icon(EvaIcons.listOutline),
-                      title: const Text("All My Orders"),
-                      trailing: Container(
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          color: AppColors.greyShade1,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: const Icon(
-                          EvaIcons.arrowIosForwardOutline,
-                          color: Colors.black,
-                          size: 19,
-                        ),
-                      ),
+                    CustomListTile(
+                      title: "All My Orders",
+                      iconData: EvaIcons.listOutline,
+                      ontap: () {},
                     ),
-                    ListTile(
-                      leading: const Icon(EvaIcons.shoppingBag),
-                      title: const Text("Pending Shipment"),
-                      trailing: Container(
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          color: AppColors.greyShade1,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: const Icon(
-                          EvaIcons.arrowIosForwardOutline,
-                          color: Colors.black,
-                          size: 19,
-                        ),
-                      ),
+                    CustomListTile(
+                      title: "Pending Shipment",
+                      iconData: EvaIcons.shoppingBagOutline,
+                      ontap: () {},
+                    ),
+                    CustomListTile(
+                      title: "Pending Payments",
+                      iconData: EvaIcons.creditCardOutline,
+                      ontap: () {},
+                    ),
+                    CustomListTile(
+                      title: "Finished Orders",
+                      iconData: EvaIcons.checkmarkSquare2Outline,
+                      ontap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              const SpaceH24(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    CustomListTile(
+                      title: "Invite Friends",
+                      iconData: EvaIcons.inboxOutline,
+                      ontap: () {},
+                    ),
+                    CustomListTile(
+                      title: "Customer Support",
+                      iconData: EvaIcons.headphonesOutline,
+                      ontap: () {},
+                    ),
+                    CustomListTile(
+                      title: "Rate Our App",
+                      iconData: EvaIcons.starOutline,
+                      ontap: () {},
+                    ),
+                    CustomListTile(
+                      title: "Make a Suggestion",
+                      iconData: EvaIcons.edit2Outline,
+                      ontap: () {},
                     ),
                   ],
                 ),
