@@ -23,9 +23,12 @@ dependencies:
   auth_buttons:
   badges:
   bottom_navy_bar:
+  footer: 
   skeletons:
   cached_network_image:
   pin_code_fields:
+  card_swiper:
+  font_awesome_flutter:
 
   cupertino_icons: ^1.0.2
 
@@ -38,5 +41,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/
+  # assets:
+  #   - assets/images

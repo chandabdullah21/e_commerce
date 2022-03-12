@@ -47,6 +47,7 @@ class _TabsState extends State<Tabs> {
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
           controller: _pageController,
           onPageChanged: (index) {
             setState(() {

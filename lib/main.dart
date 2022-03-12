@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:e_commerce/constants/app_constants.dart';
+import 'package:e_commerce/i18n/translation.dart';
 import 'package:e_commerce/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      translationsKeys: AppTranslation.translations,
+      locale: const Locale('en', "US"),
+      fallbackLocale: const Locale('ur', "PK"),
       title: appName,
       initialRoute: Routes.initial,
       getPages: Routes.routes,

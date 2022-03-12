@@ -17,111 +17,113 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.greyShade1,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(kPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomHeader(
-                title: "More",
-              ),
-              const SpaceH24(),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(kPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomHeader(
+                  title: "More",
                 ),
-                child: Column(
-                  children: [
-                    CustomListTile(
-                      title: "Shipping Address",
-                      iconData: EvaIcons.pinOutline,
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Payment Method",
-                      iconData: EvaIcons.creditCardOutline,
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Currency",
-                      iconData: Icons.payments_outlined,
-                      value: "USD",
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Language",
-                      value: "English",
-                      iconData: Icons.language_outlined,
-                      ontap: () {},
-                    ),
-                  ],
-                ),
-              ),
-              const SpaceH24(),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  children: [
-                    CustomListTile(
-                      title: "Notification Settings",
-                      iconData: EvaIcons.bellOutline,
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Privacy Policy",
-                      iconData: EvaIcons.shieldOutline,
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Frequently Ask Questions",
-                      iconData: EvaIcons.questionMarkCircleOutline,
-                      ontap: () {},
-                    ),
-                    CustomListTile(
-                      title: "Legal Information",
-                      iconData: EvaIcons.fileTextOutline,
-                      ontap: () {},
-                    ),
-                  ],
-                ),
-              ),
-              const SpaceH16(),
-              TextButton(
-                onPressed: () {
-                  Get.offAllNamed('/');
-                },
-                style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(
-                    Colors.red.withOpacity(.1),
+                const SpaceH24(),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      CustomListTile(
+                        title: "Shipping Address",
+                        iconData: EvaIcons.pinOutline,
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Payment Method",
+                        iconData: EvaIcons.creditCardOutline,
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Currency",
+                        iconData: Icons.payments_outlined,
+                        value: "USD",
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Language",
+                        value: "English",
+                        iconData: Icons.language_outlined,
+                        ontap: () {},
+                      ),
+                    ],
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      EvaIcons.logOutOutline,
-                      color: Colors.red.withOpacity(.7),
-                    ),
-                    const SpaceW8(),
-                    Text(
-                      "LOG OUT",
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button!.copyWith(
-                            color: Colors.red,
-                          ),
-                    ),
-                  ],
+                const SpaceH24(),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      CustomListTile(
+                        title: "Notification Settings",
+                        iconData: EvaIcons.bellOutline,
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Privacy Policy",
+                        iconData: EvaIcons.shieldOutline,
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Frequently Ask Questions",
+                        iconData: EvaIcons.questionMarkCircleOutline,
+                        ontap: () {},
+                      ),
+                      CustomListTile(
+                        title: "Legal Information",
+                        iconData: EvaIcons.fileTextOutline,
+                        ontap: () {},
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              // SizedBox(
-              //   width: widthOfScreen(context),
-              //   child:
-              // ),
-            ],
+                const SpaceH16(),
+                TextButton(
+                  onPressed: () {
+                    Get.offAllNamed('/');
+                  },
+                  style: ButtonStyle(
+                    overlayColor: MaterialStateProperty.all(
+                      Colors.red.withOpacity(.1),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        EvaIcons.logOutOutline,
+                        color: Colors.red.withOpacity(.7),
+                      ),
+                      const SpaceW8(),
+                      Text(
+                        "LOG OUT",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.button!.copyWith(
+                              color: Colors.red,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+                // SizedBox(
+                //   width: widthOfScreen(context),
+                //   child:
+                // ),
+              ],
+            ),
           ),
         ),
       ),
