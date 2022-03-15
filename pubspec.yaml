@@ -24,6 +24,7 @@ dependencies:
   badges:
   bottom_navy_bar:
   footer: 
+  colorize_text_avatar:
   skeletons:
   cached_network_image:
   pin_code_fields:

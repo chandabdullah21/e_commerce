@@ -4,6 +4,7 @@ import 'package:e_commerce/constants/colors.dart';
 import 'package:e_commerce/constants/spaces.dart';
 import 'package:e_commerce/screens/tabs/home/controller/home_controller.dart';
 import 'package:e_commerce/widgets/custom_header.dart';
+import 'package:e_commerce/widgets/custom_message_notification_icon.dart';
 import 'package:e_commerce/widgets/custom_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -27,56 +28,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomHeader(
-                  iconList: [
-                    Badge(
-                      badgeContent: const Text(
-                        '5',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                        ),
-                      ),
-                      position: BadgePosition.bottomStart(
-                        bottom: 3,
-                        start: 3,
-                      ),
-                      badgeColor: AppColors.primaryColor,
-                      child: IconButton(
-                        splashRadius: 23,
-                        onPressed: () {
-                          Get.toNamed('/message');
-                        },
-                        icon: const Icon(
-                          EvaIcons.messageCircleOutline,
-                          color: AppColors.secondaryColor,
-                        ),
-                      ),
-                    ),
-                    Badge(
-                      badgeContent: const Text(
-                        '10',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
-                        ),
-                      ),
-                      position: BadgePosition.bottomStart(
-                        bottom: 3,
-                        start: 3,
-                      ),
-                      badgeColor: AppColors.primaryColor,
-                      child: IconButton(
-                        splashRadius: 23,
-                        onPressed: () {
-                          Get.toNamed('/notification');
-                        },
-                        icon: const Icon(
-                          EvaIcons.bellOutline,
-                          color: AppColors.secondaryColor,
-                        ),
-                      ),
-                    ),
-                  ],
+                  iconList: notificationMessageIcons,
                   title: "Category",
                 ),
                 const SpaceH12(),
@@ -101,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       children: [
                         InkWell(
-                          borderRadius: BorderRadius.circular(kBorderRadius * 5),
+                          borderRadius:
+                              BorderRadius.circular(kBorderRadius * 5),
                           onTap: () {
                             Get.toNamed('/category');
                           },
@@ -142,7 +95,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                 ),
                 const SpaceH12(),
-        
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 220,
@@ -166,13 +118,7 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                // CustomNetworkImage(
-                //   imagePath:
-                //       "https://i.pinimg.com/originals/ef/cf/6d/efcf6ddcc09ed52beb9a5e8384a960b0.png",
-                //   boxfit: BoxFit.fitWidth,
-                //   borderRadius: kBorderRadius,
-                //   height: 200,
-                // ),
+                const SpaceH12(),
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:e_commerce/constants/spaces.dart';
 import 'package:e_commerce/screens/auth/phone/controller/phone_controller.dart';
 import 'package:e_commerce/widgets/custom_button.dart';
 import 'package:e_commerce/widgets/custom_input.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
@@ -25,20 +26,20 @@ class PhoneScreen extends StatelessWidget {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          centerTitle: true,
-          iconTheme: const IconThemeData(
-            color: AppColors.secondaryColor,
-          ),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: const Text(
-            "Login to $appName",
-            style: TextStyle(
-              color: AppColors.secondaryColor,
-            ),
-          ),
-        ),
+        // appBar: AppBar(
+        //   centerTitle: true,
+        //   iconTheme: const IconThemeData(
+        //     color: AppColors.secondaryColor,
+        //   ),
+        //   elevation: 0,
+        //   backgroundColor: Colors.transparent,
+        //   title: const Text(
+        //     "Login to $appName",
+        //     style: TextStyle(
+        //       color: AppColors.secondaryColor,
+        //     ),
+        //   ),
+        // ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(kPadding),
@@ -48,6 +49,13 @@ class PhoneScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  CustomIconButton(
+                    iconData: EvaIcons.arrowIosBackOutline,
+                    onTap: () {
+                      Get.back();
+                    },
+                  ),
+                  const SpaceH20(),
                   Text(
                     "Get Started with\n$appName",
                     style: Theme.of(context).textTheme.headline4!.copyWith(

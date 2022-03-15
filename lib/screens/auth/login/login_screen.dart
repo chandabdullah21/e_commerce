@@ -1,4 +1,3 @@
-import 'package:e_commerce/constants/adaptive.dart';
 import 'package:e_commerce/constants/app_constants.dart';
 import 'package:e_commerce/constants/colors.dart';
 import 'package:e_commerce/constants/spaces.dart';
@@ -48,12 +47,28 @@ class LoginScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "LOGIN".tr,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: AppColors.secondaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "LOGIN".tr,
+                style: Theme.of(context).textTheme.headline4!.copyWith(
+                      color: AppColors.secondaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              CustomTextButton(
+                onButtonClick: () {
+                  print(Get.locale.toString());
+                  Locale locale = Get.locale.toString() == "en_US"
+                      ? const Locale('ur', 'PK')
+                      : const Locale('en', 'US');
+                  Get.updateLocale(locale);
+                },
+                buttonText:
+                    Get.locale.toString() == "en_US" ? "اردو" : "English",
+              ),
+            ],
           ),
           const SpaceH48(),
           CustomInput(
@@ -77,16 +92,18 @@ class LoginScreen extends StatelessWidget {
             textInputType: TextInputType.visiblePassword,
             controller: loginController.passwordController,
             formValidator: MultiValidator([
-              RequiredValidator(errorText: 'PASSWORD_IS_REQUIRED'),
+              RequiredValidator(errorText: 'PASSWORD_IS_REQUIRED'.tr),
             ]),
           ),
           const SpaceH12(),
           Align(
             alignment: Alignment.centerRight,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed("forgot-password");
+              },
               child: Text(
-                "FORGOT_PASSWORD".tr,
+                "FORGOT_PASSWORD?".tr,
                 style: const TextStyle(
                   color: AppColors.black50,
                 ),

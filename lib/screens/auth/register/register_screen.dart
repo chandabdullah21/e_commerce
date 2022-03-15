@@ -48,7 +48,7 @@ class RegisterScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Sign Up",
+            "SIGN_UP".tr,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                   color: AppColors.secondaryColor,
                   fontWeight: FontWeight.bold,
@@ -60,26 +60,26 @@ class RegisterScreen extends StatelessWidget {
               Expanded(
                 child: CustomInput(
                   icon: EvaIcons.personOutline,
-                  title: "First",
+                  title: "FIRST".tr,
                   hint: "",
                   isObscure: false,
                   textInputType: TextInputType.name,
                   controller: registerController.firstNameController,
                   formValidator: MultiValidator([
-                    RequiredValidator(errorText: 'name is required'),
+                    RequiredValidator(errorText: 'NAME_IS_REQUIRED'.tr),
                   ]),
                 ),
               ),
               const SpaceW12(),
               Expanded(
                 child: CustomInput(
-                  title: "Last Name",
+                  title: "LAST_NAME".tr,
                   hint: "",
                   isObscure: false,
                   textInputType: TextInputType.name,
                   controller: registerController.lastNameController,
                   formValidator: MultiValidator([
-                    RequiredValidator(errorText: 'name is required'),
+                    RequiredValidator(errorText: 'NAME_IS_REQUIRED'.tr),
                   ]),
                 ),
               ),
@@ -88,33 +88,33 @@ class RegisterScreen extends StatelessWidget {
           const SpaceH30(),
           CustomInput(
             icon: EvaIcons.emailOutline,
-            title: "Email",
-            hint: "Enter your email",
+            title: "EMAIL".tr,
+            hint: "ENTER_YOUR_EMAIL".tr,
             isObscure: false,
             textInputType: TextInputType.emailAddress,
             controller: registerController.emailController,
             formValidator: MultiValidator([
-              RequiredValidator(errorText: 'email is required'),
-              EmailValidator(errorText: "invalid email"),
+              RequiredValidator(errorText: 'EMAIL_IS_REQUIRED'.tr),
+              EmailValidator(errorText: "INVALID_EMAIL".tr),
             ]),
           ),
           const SpaceH30(),
           CustomInput(
             icon: EvaIcons.lockOutline,
-            title: "Password",
-            hint: "Enter you password",
+            title: "PASSWORD".tr,
+            hint: "ENTER_YOU_PASSWORD".tr,
             isObscure: true,
             textInputType: TextInputType.visiblePassword,
             controller: registerController.passwordController,
             formValidator: MultiValidator([
-              RequiredValidator(errorText: 'password is required'),
+              RequiredValidator(errorText: 'PASSWORD_IS_REQUIRED'.tr),
               MinLengthValidator(6,
-                  errorText: "password must be greater than 6 characters.")
+                  errorText: "PASSWORD_MUST_BE_GREATER_THAN_6_CHARACTERS".tr)
             ]),
           ),
           const SpaceH30(),
           CustomPrimaryButton(
-            text: "Register",
+            text: "REGISTER".tr,
             onPress: () {
               registerController.onRegisterClick();
             },
@@ -132,9 +132,9 @@ class RegisterScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
-            "Already have an account?",
-            style: TextStyle(
+          Text(
+            "ALREADY_HAVE_AN_ACCOUNT".tr,
+            style: const TextStyle(
               color: AppColors.secondaryColor,
             ),
           ),
@@ -142,9 +142,9 @@ class RegisterScreen extends StatelessWidget {
             onTap: () {
               Get.back();
             },
-            child: const Text(
-              "login now",
-              style: TextStyle(
+            child: Text(
+              "LOGIN_NOW".tr,
+              style: const TextStyle(
                 color: AppColors.primaryColor,
               ),
             ),

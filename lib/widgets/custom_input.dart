@@ -8,6 +8,7 @@ import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomInput extends StatefulWidget {
   CustomInput({
@@ -17,7 +18,7 @@ class CustomInput extends StatefulWidget {
     required this.title,
     required this.hint,
     required this.textInputType,
-    required this.controller,
+    this.controller,
     this.formValidator,
   }) : super(key: key);
 
@@ -26,7 +27,7 @@ class CustomInput extends StatefulWidget {
   String title;
   String hint;
   TextInputType textInputType;
-  TextEditingController controller;
+  TextEditingController? controller;
   FormFieldValidator? formValidator;
 
   @override
@@ -71,7 +72,7 @@ class _CustomInputState extends State<CustomInput> {
                 ),
               )
             : null,
-        label: Text(widget.title),
+        label: widget.title == "" ? null : Text(widget.title),
         labelStyle: const TextStyle(
           color: AppColors.secondaryColor,
         ),
@@ -142,6 +143,59 @@ class _CustomPhoneInputState extends State<CustomPhoneInput> {
         ),
       ),
       initialCountryCode: 'PK',
+    );
+  }
+}
+
+class CustomVerificationInput extends StatelessWidget {
+  CustomVerificationInput({
+    Key? key,
+    required this.onSubmitted,
+  }) : super(key: key);
+
+  Function(String) onSubmitted;
+
+  @override
+  Widget build(BuildContext context) {
+    return PinCodeTextField(
+      appContext: context,
+      pastedTextStyle: TextStyle(
+        color: Colors.green.shade600,
+        fontWeight: FontWeight.bold,
+      ),
+      length: 6,
+      animationType: AnimationType.scale,
+      pinTheme: PinTheme(
+        shape: PinCodeFieldShape.box,
+        inactiveFillColor: Colors.white,
+        selectedFillColor: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+        activeColor: AppColors.primaryColor,
+        selectedColor: AppColors.primaryColor,
+        inactiveColor: AppColors.secondaryColor,
+        fieldHeight: 50,
+        fieldWidth: 40,
+        activeFillColor: Colors.white,
+      ),
+      cursorColor: Colors.black,
+      animationDuration: const Duration(milliseconds: 300),
+      // errorAnimationController: errorController,
+      // controller: textEditingController,
+      keyboardType: TextInputType.number,
+      autoFocus: true,
+      onSubmitted: onSubmitted,
+      boxShadows: const [
+        BoxShadow(
+          offset: Offset(0, 1),
+          color: Colors.white,
+          blurRadius: 10,
+        )
+      ],
+      onCompleted: onSubmitted,
+      beforeTextPaste: (text) {
+        return true;
+      },
+      onChanged: (String value) {},
     );
   }
 }

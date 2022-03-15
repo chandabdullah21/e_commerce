@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/auth/forgot_password/forgot_password_screen.dart';
 import 'package:e_commerce/screens/auth/login/login_screen.dart';
 import 'package:e_commerce/screens/auth/phone/phone_screen.dart';
 import 'package:e_commerce/screens/auth/register/register_screen.dart';
@@ -17,6 +18,7 @@ class Routes {
     GetPage(name: '/', page: () => LoginScreen()),
     GetPage(name: '/nav', page: () => const Tabs()),
     GetPage(name: '/register', page: () => RegisterScreen()),
+    GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
     GetPage(name: '/phone', page: () => PhoneScreen()),
     GetPage(name: '/verification', page: () => const VerificationScreen()),
     GetPage(name: '/home', page: () => const HomeScreen()),

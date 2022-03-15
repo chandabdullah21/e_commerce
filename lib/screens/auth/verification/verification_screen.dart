@@ -1,9 +1,9 @@
 import 'package:e_commerce/constants/app_constants.dart';
 import 'package:e_commerce/constants/colors.dart';
 import 'package:e_commerce/constants/spaces.dart';
+import 'package:e_commerce/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({Key? key}) : super(key: key);
@@ -67,53 +67,11 @@ class VerificationScreen extends StatelessWidget {
                   ),
                 ),
                 const SpaceH30(),
-                PinCodeTextField(
-                  appContext: context,
-                  pastedTextStyle: TextStyle(
-                    color: Colors.green.shade600,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  length: 6,
-                  animationType: AnimationType.scale,
-                  pinTheme: PinTheme(
-                    shape: PinCodeFieldShape.box,
-                    inactiveFillColor: Colors.white,
-                    selectedFillColor: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                    activeColor: AppColors.primaryColor,
-                    selectedColor: AppColors.primaryColor,
-                    inactiveColor: AppColors.secondaryColor,
-                    fieldHeight: 50,
-                    fieldWidth: 40,
-                    activeFillColor: Colors.white,
-                  ),
-                  cursorColor: Colors.black,
-                  animationDuration: Duration(milliseconds: 300),
-                  // errorAnimationController: errorController,
-                  // controller: textEditingController,
-                  keyboardType: TextInputType.number,
-                  autoFocus: true,
+                CustomVerificationInput(
                   onSubmitted: (pin) {
                     if (pin.length == 6) {
                       Get.offAndToNamed('/nav');
                     }
-                  },
-                  boxShadows: const [
-                    BoxShadow(
-                      offset: Offset(0, 1),
-                      color: Colors.white,
-                      blurRadius: 10,
-                    )
-                  ],
-                  onCompleted: (pin) {
-                    Get.offAndToNamed('/nav');
-                    print("Completed");
-                  },
-                  onChanged: (value) {
-                    print(value);
-                  },
-                  beforeTextPaste: (text) {
-                    return true;
                   },
                 ),
               ],
