@@ -1,8 +1,6 @@
-import 'package:e_commerce/models/models.dart';
-import 'package:e_commerce/utils/toast.dart';
+import 'package:e_commerce/models/register_models.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class RegisterController extends GetxController {
   @override
@@ -26,14 +24,16 @@ class RegisterController extends GetxController {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   onRegisterClick() {
-    print({
-      firstNameController.text,
-      lastNameController.text,
-      emailController.text,
-      passwordController.text,
-    });
+    RegisterData registerData = RegisterData(
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+      confirmPassword: confirmPasswordController.text,
+    );
 
     if (formKey.currentState!.validate()) {
       Get.toNamed('/phone');

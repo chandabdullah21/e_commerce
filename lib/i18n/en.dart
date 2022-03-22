@@ -20,6 +20,8 @@ abstract class EnglishLocale {
     "FIRST": "First",
     "NAME_IS_REQUIRED": "name is required",
     "LAST_NAME": "Last Name",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "ENTER_YOU_CONFIRM_PASSWORD": "Enter you confirm password",
     "PASSWORD_MUST_BE_GREATER_THAN_6_CHARACTERS":
         "password must be greater than 6 characters.",
     "REGISTER": "Register",

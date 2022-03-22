@@ -12,7 +12,7 @@ import 'package:e_commerce/screens/tabs/tabs.dart';
 import 'package:get/get.dart';
 
 class Routes {
-  static const initial = '/';
+  static const initial = '/nav';
 
   static final routes = [
     GetPage(name: '/', page: () => LoginScreen()),

@@ -20,6 +20,8 @@ abstract class UrduLocale {
     "FIRST": "پہلا نام",
     "NAME_IS_REQUIRED": "نام کی ضرورت ہے",
     "LAST_NAME": "آخری نام",
+    "CONFIRM_PASSWORD": "پاس ورڈ کی تصدیق کریں",
+    "ENTER_YOU_CONFIRM_PASSWORD": "اپنا تصدیق شدہ پاس ورڈ درج کریں",
     "PASSWORD_MUST_BE_GREATER_THAN_6_CHARACTERS":
         "پاس ورڈ چھ حروف سے زیادہ ہونا چاہیے۔",
     "REGISTER": "رجسٹر کریں",

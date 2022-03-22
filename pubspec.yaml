@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   get:
+  dio:
   eva_icons_flutter: ^3.0.2
   percent_indicator:
   timeago:
@@ -30,6 +31,8 @@ dependencies:
   pin_code_fields:
   card_swiper:
   font_awesome_flutter:
+  flutter_staggered_grid_view: 
+  flutter_rating_bar:
 
   cupertino_icons: ^1.0.2
 

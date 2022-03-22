@@ -113,6 +113,20 @@ class RegisterScreen extends StatelessWidget {
             ]),
           ),
           const SpaceH30(),
+          CustomInput(
+            icon: EvaIcons.lockOutline,
+            title: "CONFIRM_PASSWORD".tr,
+            hint: "ENTER_YOU_CONFIRM_PASSWORD".tr,
+            isObscure: true,
+            textInputType: TextInputType.visiblePassword,
+            controller: registerController.confirmPasswordController,
+            formValidator: MultiValidator([
+              RequiredValidator(errorText: 'PASSWORD_IS_REQUIRED'.tr),
+              MinLengthValidator(6,
+                  errorText: "PASSWORD_MUST_BE_GREATER_THAN_6_CHARACTERS".tr)
+            ]),
+          ),
+          const SpaceH30(),
           CustomPrimaryButton(
             text: "REGISTER".tr,
             onPress: () {

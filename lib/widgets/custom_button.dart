@@ -66,10 +66,12 @@ class CustomTextButton extends StatelessWidget {
     Key? key,
     required this.onButtonClick,
     required this.buttonText,
+    this.color,
   }) : super(key: key);
 
   Function() onButtonClick;
   String buttonText;
+  Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -79,12 +81,14 @@ class CustomTextButton extends StatelessWidget {
         buttonText,
         style: Theme.of(context).textTheme.caption!.copyWith(
               fontSize: 15,
-              color: AppColors.primaryColor,
+              color: color ?? AppColors.primaryColor,
             ),
       ),
       style: ButtonStyle(
         overlayColor: MaterialStateProperty.all(
-          AppColors.primaryColor.withOpacity(.1),
+          color != null
+              ? color!.withOpacity(.1)
+              : AppColors.primaryColor.withOpacity(.1),
         ),
       ),
     );
