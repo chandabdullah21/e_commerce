@@ -6,6 +6,7 @@ import 'package:e_commerce/screens/tabs/home/controller/home_controller.dart';
 import 'package:e_commerce/widgets/custom_header.dart';
 import 'package:e_commerce/widgets/custom_message_notification_icon.dart';
 import 'package:e_commerce/widgets/custom_network_image.dart';
+import 'package:e_commerce/widgets/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -196,87 +197,79 @@ class HomeScreen extends StatelessWidget {
               for (var index = 0;
                   index < homeController.productList.length;
                   index++)
-                Container(
-                  padding: const EdgeInsets.all(kPadding / 2),
-                  decoration: BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: kBoxShadow,
-                        blurStyle: BlurStyle.outer,
-                        color: AppColors.grey,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(kBorderRadius),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (homeController.productList[index].image != null)
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(
-                            maxHeight: 150,
-                          ),
-                          child: Image(
-                            image: NetworkImage(
-                              homeController.productList[index].image!,
-                            ),
-                          ),
+                InkWell(
+                  onTap: () {
+                    // print(homeController.productList[index].image);
+                    Get.toNamed('product-details');
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(kPadding / 2),
+                    decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: kBoxShadow,
+                          blurStyle: BlurStyle.outer,
+                          color: AppColors.grey,
                         ),
-                      const SpaceH2(),
-                      Text(
-                        homeController.productList[index].title ?? "",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                      const SpaceH2(),
-                      Text(
-                        "\$${homeController.productList[index].price.toString()}",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.bold,
+                      ],
+                      borderRadius: BorderRadius.circular(kBorderRadius),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (homeController.productList[index].image != null)
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              maxHeight: 150,
                             ),
-                      ),
-                      const SpaceH2(),
-                      Wrap(
-                        children: [
-                          RatingBar(
-                            initialRating: double.parse(
-                              homeController.productList[index].rating!.rate
-                                  .toString(),
-                            ),
-                            allowHalfRating: true,
-                            ratingWidget: RatingWidget(
-                              full: const Icon(
-                                Icons.star_rounded,
-                                color: AppColors.yellow,
-                              ),
-                              half: const Icon(
-                                Icons.star_half_rounded,
-                                color: AppColors.yellow,
-                              ),
-                              empty: const Icon(
-                                Icons.star_outline_rounded,
-                                color: AppColors.grey,
+                            child: Image(
+                              image: NetworkImage(
+                                homeController.productList[index].image!,
                               ),
                             ),
-                            onRatingUpdate: (rating) {},
-                            itemSize: 15,
                           ),
-                          const SpaceW4(),
-                          Text(
-                            "(${homeController.productList[index].rating!.count})",
-                            style:
-                                Theme.of(context).textTheme.subtitle1!.copyWith(
-                                      color: AppColors.black50,
-                                      fontSize: 12,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ],
+                        const SpaceH2(),
+                        Text(
+                          homeController.productList[index].title ?? "",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                        const SpaceH2(),
+                        Text(
+                          "\$${homeController.productList[index].price.toString()}",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              Theme.of(context).textTheme.headline6!.copyWith(
+                                    color: AppColors.primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                        const SpaceH2(),
+                        Wrap(
+                          children: [
+                            CustomRatingBar(
+                              value: double.parse(
+                                homeController.productList[index].rating!.rate
+                                    .toString(),
+                              ),
+                            ),
+                            const SpaceW4(),
+                            Text(
+                              "(${homeController.productList[index].rating!.count})",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(
+                                    color: AppColors.black50,
+                                    fontSize: 12,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
             ],

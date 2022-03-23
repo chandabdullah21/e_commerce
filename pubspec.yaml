@@ -32,7 +32,9 @@ dependencies:
   card_swiper:
   font_awesome_flutter:
   flutter_staggered_grid_view: 
+  random_avatar: 
   flutter_rating_bar:
+  readmore: 
 
   cupertino_icons: ^1.0.2
 

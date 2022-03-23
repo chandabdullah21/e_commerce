@@ -7,13 +7,12 @@ class CustomNetworkImage extends StatefulWidget {
     Key? key,
     required this.imagePath,
     required this.boxfit,
-    
     required this.borderRadius,
     required this.height,
   }) : super(key: key);
   String imagePath;
   BoxFit boxfit;
-  
+
   double borderRadius;
   double height;
 
@@ -26,6 +25,7 @@ class _CustomNetworkImageState extends State<CustomNetworkImage> {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: widget.imagePath,
+      fit: widget.boxfit,
       colorBlendMode: BlendMode.darken,
       imageBuilder: (context, imageProvider) => Container(
         height: widget.height,
@@ -33,7 +33,7 @@ class _CustomNetworkImageState extends State<CustomNetworkImage> {
           borderRadius: BorderRadius.circular(widget.borderRadius),
           image: DecorationImage(
             image: imageProvider,
-            fit: BoxFit.cover,
+            fit: widget.boxfit,
           ),
         ),
       ),

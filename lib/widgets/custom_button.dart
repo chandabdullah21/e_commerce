@@ -9,10 +9,18 @@ class CustomPrimaryButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.onPress,
+    this.color,
+    this.textColor,
+    this.icon,
+    this.isSmallText = false,
   }) : super(key: key);
 
   String text;
   VoidCallback onPress;
+  Color? color;
+  Color? textColor;
+  IconData? icon;
+  bool? isSmallText;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,7 @@ class CustomPrimaryButton extends StatelessWidget {
             ),
           ),
           backgroundColor: MaterialStateProperty.all(
-            AppColors.primaryColor,
+            color ?? AppColors.primaryColor,
           ),
         ),
         onPressed: onPress,
@@ -36,22 +44,27 @@ class CustomPrimaryButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(),
-            Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 19,
+            Expanded(
+              child: Text(
+                text,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.fade,
+                style: TextStyle(
+                  color: textColor ?? Colors.white,
+                  fontSize: isSmallText == true ? 16 : 19,
+                ),
               ),
             ),
             Container(
-              padding: EdgeInsets.all(kPadding / 7),
+              padding: const EdgeInsets.all(kPadding / 7),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: textColor ?? Colors.white,
                 borderRadius: BorderRadius.circular(kBorderRadius * 5),
               ),
-              child: const Icon(
-                EvaIcons.arrowIosForwardOutline,
-                color: AppColors.primaryColor,
+              child: Icon(
+                icon ?? EvaIcons.arrowIosForwardOutline,
+                color: color ?? AppColors.primaryColor,
               ),
             ),
           ],

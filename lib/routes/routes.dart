@@ -6,6 +6,7 @@ import 'package:e_commerce/screens/auth/verification/verification_screen.dart';
 import 'package:e_commerce/screens/other/category/category_screen.dart';
 import 'package:e_commerce/screens/other/messages/message_screen.dart';
 import 'package:e_commerce/screens/other/notifications/notification_screen.dart';
+import 'package:e_commerce/screens/other/product_details/product_details_screen.dart';
 import 'package:e_commerce/screens/tabs/home/home_screen.dart';
 import 'package:e_commerce/screens/tabs/profile/profile_screen.dart';
 import 'package:e_commerce/screens/tabs/tabs.dart';
@@ -26,6 +27,6 @@ class Routes {
     GetPage(name: '/message', page: () => const MessageScreen()),
     GetPage(name: '/notification', page: () => const NotificationScreen()),
     GetPage(name: '/category', page: () => const CategoryScreen()),
-    
+    GetPage(name: '/product-details', page: () => const ProductDetailScreen()),
   ];
 }
