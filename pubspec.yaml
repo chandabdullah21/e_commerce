@@ -35,6 +35,7 @@ dependencies:
   random_avatar: 
   flutter_rating_bar:
   readmore: 
+  segment_control: 
 
   cupertino_icons: ^1.0.2
 

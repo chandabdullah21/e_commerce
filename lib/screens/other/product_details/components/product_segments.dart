@@ -4,6 +4,8 @@ import 'package:e_commerce/constants/app_constants.dart';
 import 'package:e_commerce/constants/colors.dart';
 import 'package:e_commerce/constants/spaces.dart';
 import 'package:e_commerce/screens/other/product_details/controller/product_detail_controller.dart';
+import 'package:e_commerce/widgets/custom_button.dart';
+import 'package:e_commerce/widgets/custom_network_image.dart';
 import 'package:e_commerce/widgets/custom_rating_bar.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -177,6 +179,52 @@ class ProductSegments extends StatelessWidget {
               "Pure Cotton"),
           const SpaceH16(),
           detailRow(context, "Category", "Appreal", "Fitting", "True to size"),
+          const SpaceH16(),
+          ListTile(
+            onTap: () {
+              Get.toNamed("/store");
+            },
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: kPadding / 2),
+            leading: Container(
+              width: 70,
+              padding: const EdgeInsets.only(right: 12.0),
+              decoration: const BoxDecoration(
+                border: Border(
+                  right: BorderSide(width: 1.0, color: Colors.black26),
+                ),
+              ),
+              child: CustomNetworkImage(
+                imagePath:
+                    "http://cdn.shopify.com/s/files/1/0081/3504/9293/collections/Men_s-Coats-_-Blazzers_1200x1200.jpg?v=1564476343",
+                boxfit: BoxFit.cover,
+                borderRadius: kBorderRadius,
+                height: 70,
+              ),
+            ),
+            title: const Text(
+              "ELEGANCE",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            subtitle: Row(
+              children: const [
+                Icon(
+                  Icons.store_mall_directory_rounded,
+                  color: AppColors.secondaryColor,
+                ),
+                Text(
+                  " Visit Store",
+                  style: TextStyle(color: AppColors.secondaryColor),
+                )
+              ],
+            ),
+            trailing: const Icon(
+              EvaIcons.chevronRightOutline,
+              color: AppColors.secondaryColor,
+            ),
+          ),
+          const SpaceH16(),
         ],
       ),
     );
