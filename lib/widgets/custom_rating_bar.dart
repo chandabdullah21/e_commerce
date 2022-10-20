@@ -6,15 +6,17 @@ class CustomRatingBar extends StatelessWidget {
   CustomRatingBar({
     Key? key,
     required this.value,
+    required this.allowHalfRating,
   }) : super(key: key);
 
   double value;
+  bool allowHalfRating;
 
   @override
   Widget build(BuildContext context) {
     return RatingBar(
       initialRating: value,
-      allowHalfRating: false,
+      allowHalfRating: allowHalfRating,
       ratingWidget: RatingWidget(
         full: const Icon(
           Icons.star_rounded,

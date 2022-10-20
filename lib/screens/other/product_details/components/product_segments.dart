@@ -314,6 +314,7 @@ class ProductSegments extends StatelessWidget {
                       children: [
                         CustomRatingBar(
                           value: 3.5,
+                          allowHalfRating: false,
                         ),
                         Text(
                           "27 Nov, 2020",

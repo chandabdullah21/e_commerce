@@ -54,7 +54,49 @@ class MoreScreen extends StatelessWidget {
                         title: "Language",
                         value: "English",
                         iconData: Icons.language_outlined,
-                        ontap: () {},
+                        ontap: () {
+                          Get.bottomSheet(
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(
+                                kPadding,
+                                kPadding,
+                                kPadding,
+                                kPadding * 2,
+                              ),
+                              color: AppColors.white,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Change Language",
+                                    style:
+                                        Theme.of(context).textTheme.headline6,
+                                  ),
+                                  ListTile(
+                                    title: Text(
+                                      "English",
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
+                                    trailing: const Icon(
+                                      EvaIcons.checkmark,
+                                      color: AppColors.secondaryColor,
+                                    ),
+                                  ),
+                                  ListTile(
+                                    title: Text(
+                                      "Urdu",
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
+                                    trailing: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),

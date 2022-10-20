@@ -6,6 +6,7 @@ import 'package:e_commerce/screens/tabs/home/controller/home_controller.dart';
 import 'package:e_commerce/widgets/custom_header.dart';
 import 'package:e_commerce/widgets/custom_message_notification_icon.dart';
 import 'package:e_commerce/widgets/custom_network_image.dart';
+import 'package:e_commerce/widgets/custom_product_card.dart';
 import 'package:e_commerce/widgets/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -197,80 +198,18 @@ class HomeScreen extends StatelessWidget {
               for (var index = 0;
                   index < homeController.productList.length;
                   index++)
-                InkWell(
+                CustomProductCard(
+                  imageUrl: homeController.productList[index].image!,
                   onTap: () {
-                    // print(homeController.productList[index].image);
                     Get.toNamed('product-details');
                   },
-                  child: Container(
-                    padding: const EdgeInsets.all(kPadding / 2),
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: kBoxShadow,
-                          blurStyle: BlurStyle.outer,
-                          color: AppColors.grey,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        if (homeController.productList[index].image != null)
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(
-                              maxHeight: 150,
-                            ),
-                            child: Image(
-                              image: NetworkImage(
-                                homeController.productList[index].image!,
-                              ),
-                            ),
-                          ),
-                        const SpaceH2(),
-                        Text(
-                          homeController.productList[index].title ?? "",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.subtitle1,
-                        ),
-                        const SpaceH2(),
-                        Text(
-                          "\$${homeController.productList[index].price.toString()}",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              Theme.of(context).textTheme.headline6!.copyWith(
-                                    color: AppColors.primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                        const SpaceH2(),
-                        Wrap(
-                          children: [
-                            CustomRatingBar(
-                              value: double.parse(
-                                homeController.productList[index].rating!.rate
-                                    .toString(),
-                              ),
-                            ),
-                            const SpaceW4(),
-                            Text(
-                              "(${homeController.productList[index].rating!.count})",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .subtitle1!
-                                  .copyWith(
-                                    color: AppColors.black50,
-                                    fontSize: 12,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  percentageOff: 30,
+                  imageHeight: widthOfScreen(context) * 0.4,
+                  price: 99.99,
+                  title: homeController.productList[index].title ?? "",
+                  rating: homeController.productList[index].rating!.rate ?? 0.0,
+                  ratingCount:
+                      homeController.productList[index].rating!.count ?? 0,
                 ),
             ],
           ),

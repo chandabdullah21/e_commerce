@@ -93,22 +93,18 @@ class StoreScreen extends StatelessWidget {
                 const SpaceH12(),
                 Column(
                   children: [
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          hotDealCard(context),
-                          SpaceW12(),
-                          hotDealCard(context),
-                          SpaceW12(),
-                          hotDealCard(context),
-                          SpaceW12(),
-                          hotDealCard(context),
-                          SpaceW12(),
-                          hotDealCard(context),
-                        ],
+                    SizedBox(
+                      height: 200,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        separatorBuilder: (context, index) => const SpaceW12(),
+                        itemCount: 7,
+                        itemBuilder: (context, index) {
+                          return hotDealCard(context, index);
+                        },
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
@@ -119,32 +115,72 @@ class StoreScreen extends StatelessWidget {
     );
   }
 
-  Container hotDealCard(BuildContext context) {
+  Container hotDealCard(BuildContext context, index) {
     return Container(
+      width: 150,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(kBorderRadius),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
-            width: 100,
-            child: CustomNetworkImage(
-              imagePath:
-                  "http://cdn.shopify.com/s/files/1/0081/3504/9293/collections/Men_s-Coats-_-Blazzers_1200x1200.jpg?v=1564476343",
-              boxfit: BoxFit.cover,
-              borderRadius: kBorderRadius,
-              height: 100,
-            ),
+          Stack(
+            children: [
+              SizedBox(
+                width: 150,
+                child: CustomNetworkImage(
+                  imagePath:
+                      "http://cdn.shopify.com/s/files/1/0081/3504/9293/collections/Men_s-Coats-_-Blazzers_1200x1200.jpg?v=1564476343",
+                  boxfit: BoxFit.cover,
+                  borderRadius: kBorderRadius,
+                  height: 150,
+                ),
+              ),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 3, horizontal: 7),
+                  decoration: const BoxDecoration(
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(kBorderRadius),
+                        bottomLeft: Radius.circular(kBorderRadius),
+                      )),
+                  child: Text(
+                    "${(index + 1) * 10}%",
+                    style: const TextStyle(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
           Text(
             "Men Casual Coat",
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.subtitle1,
           ),
-          Text(
-            "\$49.99",
-            style: Theme.of(context).textTheme.subtitle2,
+          RichText(
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            text: TextSpan(
+                text: "\$59.99 ",
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                children: [
+                  TextSpan(
+                    text: " \$99.99",
+                    style: Theme.of(context).textTheme.caption!.copyWith(
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                  )
+                ]),
           ),
         ],
       ),
